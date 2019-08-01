@@ -12,6 +12,12 @@ export class ObservablesService {
     this.replaySubject.next(new Date());
   }
 
+  reset() {
+    this.subject = new BehaviorSubject(new Date());
+    this.replaySubject = new ReplaySubject();
+    this.replaySubject.next(new Date());
+  }
+
   add() {
     this.subject.next(new Date());
     this.replaySubject.next(new Date());
