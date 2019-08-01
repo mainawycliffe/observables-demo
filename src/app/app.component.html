@@ -32,12 +32,13 @@
     </div>
   </div>
   <div class="columns">
-    <div class="column">
+    <div class="column is-half">
       <h3 class="title">Behavior Subject</h3>
       <p class="content is-success is-medium">
-        NB: With Behavior Subjects, when a new listener subscribes, it only receives the last emitted value.
+        NB: With Behavior Subjects, when listeners 2 and 3 subscribes, they will only receives the last emitted value at
+        the moment they are subscribing.
       </p>
-      <div class="columns is-full">
+      <div class="columns">
         <div class="column">
           <h4 class="subtitle">Listener 1</h4>
           <div *ngIf="behaviorSubjectValues.length > 0" class="list has-background-primary is-hoverable">
@@ -67,10 +68,11 @@
       </div>
     </div>
 
-    <div class="column">
+    <div class="column is-half">
       <h3 class="title">Replay Subject</h3>
       <p class="content is-medium is-success">
-        NB: With Replay Subjects, when a new listener subscribes, it receives all emitted value.
+        NB: With Replay Subjects, when listeners 2 and 3 subscribes, they will receive all emitted values by the Replay
+        Subject.
       </p>
       <div class="columns">
         <div class="column">
