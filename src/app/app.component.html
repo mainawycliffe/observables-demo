@@ -1,18 +1,18 @@
 <div class="section">
   <div class="columns">
     <div class="column">
-      <h2 class="title is-2">RXJS: Bevahior Subject vs Replay Subject</h2>
+      <h2 class="title is-2">RXJS: Behavior Subject vs Replay Subject</h2>
       <p class="content is-medium">
         You can find the repo for this demo <a href="https://github.com/mainawycliffe/observables-demo"
           target="_blank">here</a>.
       </p>
       <p class="content is-medium">
-        This is a simple example showing how both RXJSs Behavior Subject and Replay Subject defer from each other.
+        This is a simple example showing how both RxJS Behavior Subject and Replay Subject defer from each other.
       </p>
       <p class="content is-medium">
         For both Behavior Subject and Replay Subject, we have 3 listeners. Listener 1 starts listening immediately,
         while listener 2 start listening after 5 seconds and listener 3 start listening after 10 seconds. A new
-        observable is emited every second for both Behavior and Replay Subject.
+        observable is emitted every second for both Behavior and Replay Subject.
       </p>
       <p class="content is-medium">
         Press start to see how both of them behave differently from each other.
@@ -35,21 +35,21 @@
     <div class="column">
       <h3 class="title">Behavior Subject</h3>
       <p class="content is-success is-medium">
-        NB: With Behavior Subjects, when a new listener subscribes, it only receives the last emited value.
+        NB: With Behavior Subjects, when a new listener subscribes, it only receives the last emitted value.
       </p>
       <div class="columns is-full">
         <div class="column">
           <h4 class="subtitle">Listener 1</h4>
-          <div *ngIf="behaviourSubjectValues.length > 0" class="list has-background-primary is-hoverable">
-            <ng-container *ngFor="let str of behaviourSubjectValues">
+          <div *ngIf="behaviorSubjectValues.length > 0" class="list has-background-primary is-hoverable">
+            <ng-container *ngFor="let str of behaviorSubjectValues">
               <span class="list-item"> {{ str | date:"mediumTime" }} </span>
             </ng-container>
           </div>
         </div>
         <div class="column">
           <h4 class="subtitle">Listener 2</h4>
-          <div *ngIf="behaviourSubjectValues2.length > 0" class="list has-background-success is-hoverable">
-            <ng-container *ngFor="let str of behaviourSubjectValues2">
+          <div *ngIf="behaviorSubjectValues2.length > 0" class="list has-background-success is-hoverable">
+            <ng-container *ngFor="let str of behaviorSubjectValues2">
               <span *ngIf="str" class="list-item"> {{ str | date:"mediumTime" }} </span>
               <span *ngIf="!str" class="list-item"> -- </span>
             </ng-container>
@@ -57,8 +57,8 @@
         </div>
         <div class="column">
           <h4 class="subtitle">Listener 3</h4>
-          <div *ngIf="behaviourSubjectValues3.length > 0" class="list has-background-info is-hoverable">
-            <ng-container *ngFor="let str of behaviourSubjectValues3">
+          <div *ngIf="behaviorSubjectValues3.length > 0" class="list has-background-info is-hoverable">
+            <ng-container *ngFor="let str of behaviorSubjectValues3">
               <span *ngIf="str" class="list-item"> {{ str | date:"mediumTime" }} </span>
               <span *ngIf="!str" class="list-item"> -- </span>
             </ng-container>
@@ -70,7 +70,7 @@
     <div class="column">
       <h3 class="title">Replay Subject</h3>
       <p class="content is-medium is-success">
-        NB: With Replay Subjects, when a new listener subscribes, it only receives all emited value.
+        NB: With Replay Subjects, when a new listener subscribes, it receives all emitted value.
       </p>
       <div class="columns">
         <div class="column">

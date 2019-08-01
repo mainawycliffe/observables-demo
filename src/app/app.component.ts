@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ObservablesService } from './observables.service';
 import { SubSink } from 'subsink';
-import { of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { ObservablesService } from './observables.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +9,9 @@ import { delay } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
-  behaviourSubjectValues: Date[] = [];
-  behaviourSubjectValues2: Date[] = [];
-  behaviourSubjectValues3: Date[] = [];
+  behaviorSubjectValues: Date[] = [];
+  behaviorSubjectValues2: Date[] = [];
+  behaviorSubjectValues3: Date[] = [];
   replaySubjectValues: Date[] = [];
   replaySubjectValues2: Date[] = [];
   replaySubjectValues3: Date[] = [];
@@ -26,39 +24,39 @@ export class AppComponent implements OnInit, OnDestroy {
 
   start() {
     this.subs.sink = this.service.subject.subscribe(date =>
-      date ? this.behaviourSubjectValues.push(date) : null
+      date ? this.behaviorSubjectValues.push(date) : null
     );
 
     setTimeout(() => {
       this.subs.sink = this.service.subject.subscribe(date => {
-        if (this.behaviourSubjectValues2.length === 0) {
+        if (this.behaviorSubjectValues2.length === 0) {
           // add some extra empty row to the list
-          this.behaviourSubjectValues.forEach(() =>
-            this.behaviourSubjectValues2.push(null)
+          this.behaviorSubjectValues.forEach(() =>
+            this.behaviorSubjectValues2.push(null)
           );
 
-          this.behaviourSubjectValues2.pop();
+          this.behaviorSubjectValues2.pop();
         }
 
         if (date !== null) {
-          this.behaviourSubjectValues2.push(date);
+          this.behaviorSubjectValues2.push(date);
         }
       });
     }, 5000);
 
     setTimeout(() => {
       this.subs.sink = this.service.subject.subscribe(date => {
-        if (this.behaviourSubjectValues3.length === 0) {
+        if (this.behaviorSubjectValues3.length === 0) {
           // add some extra empty row to the list
-          this.behaviourSubjectValues.forEach(() =>
-            this.behaviourSubjectValues3.push(null)
+          this.behaviorSubjectValues.forEach(() =>
+            this.behaviorSubjectValues3.push(null)
           );
 
-          this.behaviourSubjectValues3.pop();
+          this.behaviorSubjectValues3.pop();
         }
 
         if (date !== null) {
-          this.behaviourSubjectValues3.push(date);
+          this.behaviorSubjectValues3.push(date);
         }
       });
     }, 10000);
@@ -88,9 +86,9 @@ export class AppComponent implements OnInit, OnDestroy {
   reset() {
     this.stop();
 
-    this.behaviourSubjectValues = [];
-    this.behaviourSubjectValues2 = [];
-    this.behaviourSubjectValues3 = [];
+    this.behaviorSubjectValues = [];
+    this.behaviorSubjectValues2 = [];
+    this.behaviorSubjectValues3 = [];
 
     this.replaySubjectValues = [];
     this.replaySubjectValues2 = [];
